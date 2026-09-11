@@ -1,0 +1,256 @@
+body {
+    background-color: black;
+    margin: 0;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.questionMark-pic {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    max-width: 30%;
+    height: auto;
+    border-radius: 8px;
+    animation:
+            popIn 1.5s ease-in-out forwards,
+            swing 2s ease-in-out 1.5s infinite;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes swing {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1) rotate(-20deg);
+    }
+    75% {
+        transform: scale(1) rotate(20deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards !important;
+}
+
+#typed-text {
+    color: white;
+    font-family: monospace;
+    font-size: clamp(24px, 5vw, 60px);
+    border-right: 2px solid white;
+    display: inline-block;
+    animation: blink 0.7s infinite;
+    white-space: pre-line;
+    text-align: center;
+    max-width: 90vw;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+#ryuk-pic {
+    max-width: 20%;
+    height: auto;
+    border-radius: 8px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+}
+
+#deathnote-pic {
+    display: none;
+    position: absolute;
+    top: 120px;
+    right: 70px;
+    max-width: 12%;
+    height: auto;
+}
+
+#speech-bubble {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 220px;
+    background: lightpink;
+    color: black;
+    padding: 10px 15px;
+    border-radius: .4em;
+    font-family: sans-serif;
+    z-index: 10;
+}
+
+#speech-bubble:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-left-color: lightpink;
+    border-right: 0;
+    border-bottom: 0;
+    margin-top: -10px;
+    margin-right: -20px;
+}
+
+#apple-btn {
+    display: none;
+    padding: 51px 120px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 40px;
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+}
+
+#apple-btn:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+    transform: translate(-50%, -50%);
+}
+
+#apple-btn:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translate(-50%, calc(-50% + 10px));
+    transition: 100ms;
+}
+
+#l-container {
+    display: none;
+    position: absolute;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+#l-pic {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+#l-pic:hover {
+    transform: scale(1.1);
+}
+
+#cake-pic {
+    width: 100px;
+    height: auto;
+}
+
+.star {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-bottom: 10.5px solid gold;
+    border-left: 15px solid transparent;
+    transform: rotate(35deg);
+    animation: popIn 0.8s ease-in-out forwards;
+}
+
+.star:before {
+    border-bottom: 12px solid gold;
+    border-left: 4.5px solid transparent;
+    border-right: 4.5px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -6.75px;
+    left: -9px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
+
+.star:after {
+    position: absolute;
+    display: block;
+    color: gold;
+    top: 0.75px;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-bottom: 10.5px solid gold;
+    border-left: 15px solid transparent;
+    transform: rotate(-70deg);
+    content: '';
+}
+
+/* MOBILE MEDIA QUERY ALWAYS AT THE BOTTOM */
+@media (max-width: 768px) {
+    #ryuk-pic {
+        max-width: 35%;
+        top: 5px;
+        right: 5px;
+    }
+
+    #speech-bubble {
+        top: 10px;
+        right: 40%;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    #apple-btn {
+        padding: 20px 40px;
+        font-size: 20px;
+    }
+
+    #l-pic {
+        width: 180px;
+    }
+
+    #cake-pic {
+        width: 60px;
+    }
+}
